@@ -152,7 +152,7 @@ class FeedbackController extends Controller
         $validated = $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'required|string|min:10|max:1000',
-            'file' => 'nullable|file|max:10240|mimes:jpg,jpeg,png,pdf,doc,docx',
+            'file' => 'nullable|file|max:25600|mimes:jpg,jpeg,png,pdf,doc,docx,mp4,avi,mov,heic'
         ]);
 
         // Handle file upload

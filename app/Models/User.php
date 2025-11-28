@@ -66,4 +66,33 @@ class User extends Authenticatable
     {
         return $this->hasMany(Feedback::class);
     }
+
+    public function assignedComplaints()
+    {
+        return $this->hasMany(Complaint::class, 'officer_id');
+    }
+
+    public function complaints()
+    {
+        return $this->hasMany(Complaint::class, 'user_id');
+    }
+
+    public function resolvedComplaints()
+    {
+        return $this->hasMany(Complaint::class, 'officer_id')
+            ->where('status', 'resolved');
+    }
+
+
+    public function feedbacks()
+    {
+        return $this->hasManyThrough(
+            Feedback::class,
+            Complaint::class,
+            'officer_id',   // Complaint.officer_id
+            'complaint_id', // Feedback.complaint_id
+            'id',
+            'id'
+        );
+    }
 }

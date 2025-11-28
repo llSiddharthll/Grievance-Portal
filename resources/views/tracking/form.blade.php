@@ -8,7 +8,7 @@
             </div>
 
             <!-- Tracking Form -->
-            <div class="bg-white rounded-2xl shadow-lg border border-emerald-100 p-8">
+            <div class="bg-white rounded-2xl shadow-2xs border border-emerald-100 p-8">
                 @if(session('error'))
                     <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                         <div class="flex items-center">
@@ -44,7 +44,7 @@
                             id="tracking_id"
                             value="{{ old('tracking_id') }}"
                             class="w-full px-4 py-3 border border-emerald-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-                            placeholder="Enter your tracking ID (e.g., COMP-123456)"
+                            placeholder="Enter tracking ID (GRV-20XXXXXX-000X)"
                             required
                         >
                         @error('tracking_id')

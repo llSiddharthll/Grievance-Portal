@@ -7,7 +7,7 @@
     </div>
 
     <!-- User Form -->
-    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
         <form action="{{ route('admin.users.store') }}" method="POST">
             @csrf
 

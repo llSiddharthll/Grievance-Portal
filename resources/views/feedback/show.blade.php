@@ -17,7 +17,7 @@
         </div>
 
         <!-- Feedback Card -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6">
                 <div>
                     <h2 class="text-2xl font-bold text-emerald-900">{{ __('Feedback for Complaint') }}</h2>
@@ -130,7 +130,7 @@
                             </p>
                         </div>
                         <a href="{{ asset('storage/' . $feedback->file_path) }}" target="_blank"
-                            class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors">
+                            class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors">
                             {{ __('View File') }}
                         </a>
                     </div>
@@ -139,7 +139,7 @@
         </div>
 
         <!-- Related Complaint Actions -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Related Complaint') }}</h3>
             <div class="flex flex-col sm:flex-row gap-4">
                 <a href="{{ route(auth()->user()->hasRole('officer') ? 'officer.complaints.show' : 'complaints.show', $feedback->complaint) }}"
@@ -170,7 +170,7 @@
 
         <!-- Role-based Actions Section -->
         @if (auth()->user()->hasRole('admin'))
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Admin Actions') }}</h3>
                 <form action="{{ route('feedback.updateStatus', $feedback) }}" method="POST" class="space-y-4">
                     @csrf

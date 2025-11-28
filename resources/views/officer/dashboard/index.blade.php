@@ -7,14 +7,14 @@
                 <p class="text-emerald-600 mt-2">{{ __('welcome_back_assigned_overview') }}</p>
             </div>
             <div class="text-sm text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg">
-                {{ Auth::user()->department->name }}
+                {{ __(Auth::user()->department->name) }}
             </div>
         </div>
 
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Assigned Complaints -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-emerald-600 text-sm font-medium">{{ __('Assigned Complaints') }}</p>
@@ -32,7 +32,7 @@
             </div>
 
             <!-- Pending Action -->
-            <div class="bg-white rounded-xl shadow-lg border border-orange-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-orange-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-orange-600 text-sm font-medium">{{ __('pending_action_title') }}</p>
@@ -50,7 +50,7 @@
             </div>
 
             <!-- Resolved -->
-            <div class="bg-white rounded-xl shadow-lg border border-green-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-green-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-green-600 text-sm font-medium">{{ __('Resolved') }}</p>
@@ -74,11 +74,11 @@
         <!-- Recent Complaints & Department Stats -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Recent Complaints -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-lg font-semibold text-emerald-900">Recent Assigned Complaints</h3>
+                    <h3 class="text-lg font-semibold text-emerald-900">{{ __('Recent Assigned Complaints') }}</h3>
                     <a href="{{ route('officer.complaints.index') }}" class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">
-                        View All →
+                        {{ __('View All') }} →
                     </a>
                 </div>
                 <div class="space-y-4">
@@ -88,7 +88,7 @@
                                 <div class="flex items-center space-x-2">
                                     <p class="font-medium text-emerald-900 text-sm">{{ Str::limit($complaint->subject, 40) }}</p>
                                     <span class="bg-{{ $complaint->status === 'in_progress' ? 'blue' : 'green' }}-100 text-{{ $complaint->status === 'in_progress' ? 'blue' : 'green' }}-800 text-xs px-2 py-1 rounded-full">
-                                        {{ ucfirst(str_replace('_', ' ', $complaint->status)) }}
+                                        {{ __(ucfirst(str_replace('_', ' ', $complaint->status))) }}
                                     </span>
                                 </div>
                                 <div class="text-xs text-emerald-600 mt-1">
@@ -116,8 +116,8 @@
             </div>
 
             <!-- Department Overview -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
-                <h3 class="text-lg font-semibold text-emerald-900 mb-4">Department Overview</h3>
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
+                <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Department Overview') }}</h3>
                 <div class="space-y-4">
                     @php
                         $totalDeptComplaints = $departmentStats->sum('count');
@@ -136,7 +136,7 @@
                         @endphp
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
-                                <span class="text-sm font-medium text-{{ $config['color'] }}-700">{{ $config['label'] }}</span>
+                                <span class="text-sm font-medium text-{{ $config['color'] }}-700">{{ __($config['label']) }}</span>
                                 <span class="text-sm text-{{ $config['color'] }}-600">{{ $stat->count }} ({{ $percentage }}%)</span>
                             </div>
                             <div class="w-full bg-{{ $config['color'] }}-200 rounded-full h-2">
@@ -147,7 +147,7 @@
                     
                     <div class="pt-4 border-t border-emerald-100">
                         <div class="flex justify-between items-center text-sm">
-                            <span class="text-emerald-700 font-medium">Total Department Complaints</span>
+                            <span class="text-emerald-700 font-medium">{{ __('Total Department Complaints') }}</span>
                             <span class="text-emerald-900 font-bold">{{ $totalDeptComplaints }}</span>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
 
         <!-- Quick Actions -->
         <div class="bg-emerald-50 rounded-xl border border-emerald-200 p-6">
-            <h3 class="text-lg font-semibold text-emerald-900 mb-4">Quick Actions</h3>
+            <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Quick Actions') }}</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a href="{{ route('officer.complaints.index') }}" class="bg-white p-4 rounded-lg border border-emerald-200 hover:shadow-md transition-shadow text-center">
                     <div class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-2">
@@ -165,7 +165,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
-                    <span class="text-sm font-medium text-emerald-900">View All Complaints</span>
+                    <span class="text-sm font-medium text-emerald-900">{{ __('View All Complaints') }}</span>
                 </a>
                 
                 <a href="{{ route('officer.complaints.index', ['status' => 'in_progress']) }}" class="bg-white p-4 rounded-lg border border-emerald-200 hover:shadow-md transition-shadow text-center">
@@ -174,7 +174,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <span class="text-sm font-medium text-emerald-900">Pending Actions</span>
+                    <span class="text-sm font-medium text-emerald-900">{{ __('Pending Actions') }}</span>
                 </a>
                 
                 <div class="bg-white p-4 rounded-lg border border-emerald-200 text-center">
@@ -183,7 +183,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </div>
-                    <span class="text-sm font-medium text-emerald-900">{{ Auth::user()->department->name }}</span>
+                    <span class="text-sm font-medium text-emerald-900">{{ __(Auth::user()->department->name) }}</span>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@
 
         <!-- Dropdown -->
         <div
-            class="absolute right-0 mt-2 w-32 bg-emerald-800 border rounded-md shadow-lg opacity-0 invisible
+            class="absolute right-0 mt-2 w-32 bg-emerald-800 border rounded-md shadow-2xs opacity-0 invisible
                group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden outline-none">
 
             <a href="{{ url('lang/en') }}"

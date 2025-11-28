@@ -42,7 +42,7 @@
         </div>
 
         <!-- Filters and Search -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <form method="GET" action="{{ route('complaints.index') }}" class="flex flex-col md:flex-row gap-4">
                 <!-- Search -->
                 <div class="flex-1">
@@ -92,7 +92,7 @@
         </div>
 
         <!-- Grievances List -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 overflow-hidden">
             @if ($complaints->count() > 0)
                 <div class="overflow-x-auto max-w-full">
                     <table class="w-full whitespace-nowrap">
@@ -131,7 +131,7 @@
                                     </td>
                                     <td class="py-4 px-6">
                                         <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                                            {{ $complaint->department->name }}
+                                            {{ __($complaint->department->name) }}
                                         </span>
                                     </td>
                                     <td class="py-4 px-6 text-emerald-600 text-sm">
@@ -241,7 +241,7 @@
                 // Show temporary notification
                 const notification = document.createElement('div');
                 notification.className =
-                    'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+                    'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-2xs z-50';
                 notification.textContent = '{{ __('Tracking ID copied!') }}';
                 document.body.appendChild(notification);
 

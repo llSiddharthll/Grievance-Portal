@@ -54,7 +54,7 @@
         </div>
 
         <!-- Complaint Details -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6 mb-8 text-left">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6 mb-8 text-left">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Details') }}</h3>
             <div class="space-y-3">
                 <div class="flex justify-between">

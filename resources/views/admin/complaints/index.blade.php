@@ -19,27 +19,27 @@
     <div class="text-sm text-emerald-600">{{ __('Total Complaints') }}</div>
 </div>
 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-    <div class="text-2xl font-bold text-orange-600">
+    <div class="text-2xl font-bold text-emerald-900">
         {{ $complaints->where('status', 'pending')->count() }}
     </div>
-    <div class="text-sm text-orange-600">{{ __('Pending') }}</div>
+    <div class="text-sm text-emerald-600">{{ __('Pending') }}</div>
 </div>
 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-    <div class="text-2xl font-bold text-blue-600">
+    <div class="text-2xl font-bold text-emerald-900">
         {{ $complaints->where('status', 'in_progress')->count() }}
     </div>
-    <div class="text-sm text-blue-600">{{ __('In Progress') }}</div>
+    <div class="text-sm text-emerald-600">{{ __('In Progress') }}</div>
 </div>
 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-    <div class="text-2xl font-bold text-green-600">
+    <div class="text-2xl font-bold text-emerald-900">
         {{ $complaints->where('status', 'resolved')->count() }}
     </div>
-    <div class="text-sm text-green-600">{{ __('Resolved') }}</div>
+    <div class="text-sm text-emerald-600">{{ __('Resolved') }}</div>
 </div>
 </div>
 
 <!-- Filters and Search -->
-<div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+<div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
 <form method="GET" action="{{ route('admin.complaints.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
     <!-- Search -->
     <div class="md:col-span-2">
@@ -120,7 +120,7 @@
 </div>
 
 <!-- Complaints Table -->
-<div class="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden">
+<div class="bg-white rounded-xl shadow-2xs border border-emerald-100 overflow-hidden">
 @if($complaints->count() > 0)
     <div class="w-full overflow-x-auto">
         <table class="min-w-max w-full">
@@ -193,7 +193,7 @@
                             <div class="flex space-x-2">
                                 <a 
                                     href="{{ route('admin.complaints.show', $complaint) }}" 
-                                    class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors"
+                                    class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors"
                                 >
                                     {{ __('Manage') }}
                                 </a>
@@ -238,7 +238,7 @@
         navigator.clipboard.writeText(trackingId).then(() => {
             // Show temporary notification
             const notification = document.createElement('div');
-            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-2xs z-50';
             notification.textContent = '{{ __("Tracking ID copied!") }}';
             document.body.appendChild(notification);
             

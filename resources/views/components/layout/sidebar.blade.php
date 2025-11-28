@@ -4,7 +4,7 @@
 
 <!-- Sidebar -->
 <aside id="sidebar"
-    class="fixed left-0 top-0 h-full w-70 bg-white shadow-xl z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+    class="fixed left-0 top-0 h-full w-70 bg-white shadow-sm z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
     <!-- Sidebar Header -->
     <div class="p-6 border-b border-emerald-100 bg-emerald-600">
         <div class="flex items-center justify-between">

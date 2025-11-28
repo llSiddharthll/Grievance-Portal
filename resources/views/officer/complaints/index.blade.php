@@ -38,7 +38,7 @@
         </div>
 
         <!-- Filters and Search -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <form method="GET" action="{{ route('officer.complaints.index') }}" class="flex flex-col md:flex-row gap-4">
                 <!-- Search -->
                 <div class="flex-1">
@@ -92,7 +92,7 @@
         </div>
 
         <!-- Complaints Table -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 overflow-hidden">
             @if($complaints->count() > 0)
                 <div class="overflow-x-auto">
                     <table class="w-full whitespace-nowrap">
@@ -140,7 +140,7 @@
                                         <div class="flex space-x-2">
                                             <a 
                                                 href="{{ route('officer.complaints.show', $complaint) }}" 
-                                                class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors"
+                                                class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors"
                                             >
                                                 {{ __('Manage') }}
                                             </a>

@@ -9,6 +9,11 @@
 @theme {
     --font-sans: "Poppins", sans-serif;
 }
+:root{
+    --btn-bg: var(--color-emerald-100);
+    --btn-text: var(--color-emerald-800);
+}
+
 * {
     font-family: "Poppins", sans-serif;
 }
@@ -37,10 +42,11 @@ body::-webkit-scrollbar-track:hover {
 
 
 body ::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
 }
 body ::-webkit-scrollbar-thumb {
     background-color: var(--color-emerald-600);
+    border-radius: 10px;
 }
 body ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-emerald-500);

@@ -17,11 +17,11 @@
                 <p class="text-emerald-600 mt-2">
                     @auth
                         @if (auth()->user()->hasRole('admin'))
-                            Monitor all feedback from citizens and officers
+                            {{ __('Monitor all feedback from citizens and officers') }}
                         @elseif(auth()->user()->hasRole('officer'))
-                            Review feedback from citizens and manage your responses
+                            {{ __('Review feedback from citizens and manage your responses') }}
                         @else
-                            Review your submitted feedback
+                            {{ __('Review your submitted feedback') }}
                         @endif
                     @endauth
                 </p>
@@ -34,50 +34,50 @@
                 <!-- Admin Stats -->
                 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
                     <div class="text-2xl font-bold text-emerald-900">{{ $stats['total_feedback'] }}</div>
-                    <div class="text-sm text-emerald-600">Total Feedback</div>
+                    <div class="text-sm text-emerald-600">{{ __('Total Feedback') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-                    <div class="text-2xl font-bold text-orange-600">{{ $stats['average_rating'] }}/5</div>
-                    <div class="text-sm text-orange-600">Average Rating</div>
+                    <div class="text-2xl font-bold text-red-600">{{ $stats['average_rating'] }}/5</div>
+                    <div class="text-sm text-red-600">{{ __('Average Rating') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-red-100 p-4 text-center">
                     <div class="text-2xl font-bold text-red-600">{{ $stats['low_ratings'] }}</div>
-                    <div class="text-sm text-red-600">Low Ratings (≤2)</div>
+                    <div class="text-sm text-red-600">{{ __('Low Ratings (≤2)') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-green-100 p-4 text-center">
                     <div class="text-2xl font-bold text-green-600">{{ $stats['high_ratings'] }}</div>
-                    <div class="text-sm text-green-600">High Ratings (≥4)</div>
+                    <div class="text-sm text-green-600">{{ __('High Ratings (≥4)') }}</div>
                 </div>
             @elseif(auth()->user()->hasRole('officer'))
                 <!-- Officer Stats -->
                 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
                     <div class="text-2xl font-bold text-emerald-900">{{ $stats['total_received'] }}</div>
-                    <div class="text-sm text-emerald-600">Feedback Received</div>
+                    <div class="text-sm text-emerald-600">{{ __('Feedback Received') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-                    <div class="text-2xl font-bold text-orange-600">
+                    <div class="text-2xl font-bold text-red-600">
                         {{ $stats['average_rating'] ? $stats['average_rating'] : '0' }}/5
                     </div>
-                    <div class="text-sm text-orange-600">Average Rating</div>
+                    <div class="text-sm text-red-600">{{ __('Average Rating') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-red-100 p-4 text-center">
                     <div class="text-2xl font-bold text-red-600">{{ $stats['low_ratings'] }}</div>
-                    <div class="text-sm text-red-600">Low Ratings</div>
+                    <div class="text-sm text-red-600">{{ __('Low Ratings') }}</div>
                 </div>
                 <div class="bg-white rounded-xl shadow border border-blue-100 p-4 text-center">
                     <div class="text-2xl font-bold text-blue-600">{{ $stats['feedback_given'] }}</div>
-                    <div class="text-sm text-blue-600">Feedback Given</div>
+                    <div class="text-sm text-blue-600">{{ __('Feedback Given') }}</div>
                 </div>
             @else
                 <!-- Citizen Stats -->
                 <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
                     <div class="text-2xl font-bold text-emerald-900">{{ $stats['total_feedback'] }}</div>
-                    <div class="text-sm text-emerald-600">Total Feedback</div>
+                    <div class="text-sm text-emerald-600">{{ __('Total Feedback') }}</div>
                 </div>
                 @if ($stats['average_rating_given'])
                     <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-                        <div class="text-2xl font-bold text-orange-600">{{ $stats['average_rating_given'] }}/5</div>
-                        <div class="text-sm text-orange-600">Average Rating Given</div>
+                        <div class="text-2xl font-bold text-red-600">{{ $stats['average_rating_given'] }}/5</div>
+                        <div class="text-sm text-red-600">{{ __('Average Rating Given') }}</div>
                     </div>
                 @endif
             @endif
@@ -94,33 +94,33 @@
                             <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.35 16.5c-.77.833.192 2.5 1.732 2.5z">
-                                </path>
+                            </path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-red-900">Attention Required</h3>
+                            <h3 class="font-semibold text-red-900">{{ __('Attention Required') }}</h3>
                             <p class="text-red-700 text-sm">
-                                {{ $stats['recent_low_ratings']->count() }} complaint(s) with low ratings need review
+                                {{ $stats['recent_low_ratings']->count() }} {{ __('complaint(s) with low ratings need review') }}
                             </p>
                         </div>
                     </div>
                     <a href="#low-ratings"
-                        class="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition-colors">
-                        View Details
+                        class="px-3 py-1 bg-red-200 text-red-800 border-red-800 text-sm rounded hover:bg-red-300 transition-colors">
+                        {{ __('View Details') }}
                     </a>
                 </div>
             </div>
         @endif
 
         <!-- Filters Section -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <form method="GET" action="{{ route('feedback.index') }}"
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Search -->
                 <div class="md:col-span-2">
                     <div class="relative">
                         <input type="text" name="search" value="{{ request('search') }}"
-                            placeholder="Search by tracking ID, subject, or user..."
+                            placeholder="{{ __('Search by tracking ID, subject, or user...') }}"
                             class="w-full pl-10 pr-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
                         <svg class="w-5 h-5 text-emerald-400 absolute left-3 top-2.5" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
@@ -134,13 +134,13 @@
                 <div>
                     <select name="status"
                         class="w-full px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-                        <option value="all">All Status</option>
-                        <option value="submitted" {{ request('status') == 'submitted' ? 'selected' : '' }}>Submitted
+                        <option value="all">{{ __('All Status') }}</option>
+                        <option value="submitted" {{ request('status') == 'submitted' ? 'selected' : '' }}>{{ __('Submitted') }}
                         </option>
-                        <option value="reviewed" {{ request('status') == 'reviewed' ? 'selected' : '' }}>Reviewed
+                        <option value="reviewed" {{ request('status') == 'reviewed' ? 'selected' : '' }}>{{ __('Reviewed') }}
                         </option>
                         <option value="action_required" {{ request('status') == 'action_required' ? 'selected' : '' }}>
-                            Action Required</option>
+                            {{ __('Action Required') }}</option>
                     </select>
                 </div>
 
@@ -148,7 +148,7 @@
                 <div>
                     <select name="rating"
                         class="w-full px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-                        <option value="">All Ratings</option>
+                        <option value="">{{ __('All Ratings') }}</option>
                         <option value="5" {{ request('rating') == '5' ? 'selected' : '' }}>⭐⭐⭐⭐⭐ (5)</option>
                         <option value="4" {{ request('rating') == '4' ? 'selected' : '' }}>⭐⭐⭐⭐ (4)</option>
                         <option value="3" {{ request('rating') == '3' ? 'selected' : '' }}>⭐⭐⭐ (3)</option>
@@ -162,11 +162,11 @@
                     <div>
                         <select name="department_id"
                             class="w-full px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-                            <option value="">All Departments</option>
+                            <option value="">{{ __('All Departments') }}</option>
                             @foreach ($departments as $department)
                                 <option value="{{ $department->id }}"
                                     {{ request('department_id') == $department->id ? 'selected' : '' }}>
-                                    {{ $department->name }}
+                                    {{ __($department->name) }}
                                 </option>
                             @endforeach
                         </select>
@@ -178,11 +178,10 @@
                     <div>
                         <select name="feedback_type"
                             class="w-full px-4 py-2 border border-emerald-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-                            <option value="">All Feedback</option>
+                            <option value="">{{ __('All Feedback') }}</option>
                             <option value="received" {{ request('feedback_type') == 'received' ? 'selected' : '' }}>
-                                Received from Citizens</option>
-                            <option value="given" {{ request('feedback_type') == 'given' ? 'selected' : '' }}>Given by
-                                Me</option>
+                                {{ __('Received from Citizens') }}</option>
+                            <option value="given" {{ request('feedback_type') == 'given' ? 'selected' : '' }}>{{ __('Given by Me') }}</option>
                         </select>
                     </div>
                 @endif
@@ -195,11 +194,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <span>Apply Filters</span>
+                        <span>{{ __('Apply Filters') }}</span>
                     </button>
                     <a href="{{ route('feedback.index') }}"
                         class="px-4 py-2 border border-emerald-300 text-emerald-700 rounded-lg hover:bg-emerald-50 transition-colors">
-                        Reset
+                        {{ __('Reset') }}
                     </a>
                 </div>
             </form>
@@ -210,7 +209,7 @@
             (auth()->user()->hasRole('admin') || auth()->user()->hasRole('officer')) &&
                 $stats['recent_low_ratings']->count() > 0)
             <div id="low-ratings" class="bg-red-50 rounded-xl border border-red-200 p-6">
-                <h3 class="text-lg font-semibold text-red-900 mb-4">Low Ratings Requiring Attention</h3>
+                <h3 class="text-lg font-semibold text-red-900 mb-4">{{ __('Low Ratings Requiring Attention') }}</h3>
                 <div class="space-y-3">
                     @foreach ($stats['recent_low_ratings'] as $lowRating)
                         <div class="flex items-center justify-between p-3 bg-white border border-red-200 rounded-lg">
@@ -240,13 +239,13 @@
                             </div>
                             <div class="flex space-x-2">
                                 <a href="{{ route('feedback.show', $lowRating) }}"
-                                    class="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition-colors">
-                                    Review
+                                    class="px-3 py-1 bg-red-200 text-red-800 border-red-800 text-sm rounded hover:bg-red-300 transition-colors">
+                                    {{ __('Review') }}
                                 </a>
                                 @if (auth()->user()->hasRole('officer'))
                                     <a href="{{ route('officer.complaints.show', $lowRating->complaint) }}"
                                         class="px-3 py-1 border border-red-300 text-red-700 text-sm rounded hover:bg-red-50 transition-colors">
-                                        View Complaint
+                                        {{ __('View Complaint') }}
                                     </a>
                                 @endif
                             </div>
@@ -257,26 +256,27 @@
         @endif
 
         <!-- Feedback Table -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 overflow-hidden">
             @if ($feedback->count() > 0)
                 <div class="overflow-x-auto max-w-full">
                     <table class="w-full whitespace-nowrap">
                         <thead>
                             <tr class="bg-emerald-50 border-b border-emerald-100">
-                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Complaint</th>
-                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Rating & Comment</th>
+                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Complaint') }}</th>
+                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Rating & Comment') }}</th>
                                 @if (auth()->user()->hasRole('admin'))
-                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">From User</th>
-                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">To Officer</th>
+                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('From User') }}</th>
+                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('To Officer') }}</th>
                                 @elseif(auth()->user()->hasRole('officer'))
-                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">From User</th>
-                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Type</th>
+                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('From User') }}</th>
+                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Type') }}</th>
                                 @else
-                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">To Officer</th>
+                                    <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('To Officer') }}</th>
+
                                 @endif
-                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Status</th>
-                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Submitted</th>
-                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">Actions</th>
+                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Status') }}</th>
+                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Submitted') }}</th>
+                                <th class="text-left py-4 px-6 text-emerald-700 font-semibold">{{ __('Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -338,7 +338,7 @@
                                                     class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Given</span>
                                             @else
                                                 <span
-                                                    class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Received</span>
+                                                    class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Received</span>
                                             @endif
                                         </td>
                                     @else
@@ -368,7 +368,7 @@
                                         @endphp
                                         <span
                                             class="bg-{{ $config['color'] }}-100 text-{{ $config['color'] }}-800 text-xs px-2 py-1 rounded">
-                                            {{ $config['label'] }}
+                                            {{ __($config['label']) }}
                                         </span>
                                     </td>
                                     <td class="py-4 px-6 text-emerald-600 text-sm">
@@ -377,12 +377,12 @@
                                     <td class="py-4 px-6">
                                         <div class="flex space-x-2">
                                             <a href="{{ route('feedback.show', $item) }}"
-                                                class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors">
-                                                View
+                                                class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors">
+                                                <i class="fa-solid fa-eye"></i>
                                             </a>
                                             @if (auth()->user()->hasRole('officer') && $item->user_id !== auth()->id() && $item->rating <= 2)
                                                 <a href="{{ route('officer.complaints.show', $item->complaint) }}"
-                                                    class="px-3 py-1 border border-orange-300 text-orange-700 text-sm rounded hover:bg-orange-50 transition-colors">
+                                                    class="px-3 py-1 border border-red-300 text-red-700 text-sm rounded hover:bg-red-50 transition-colors">
                                                     Address
                                                 </a>
                                             @endif

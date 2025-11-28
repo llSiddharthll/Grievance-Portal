@@ -29,7 +29,7 @@
     </div>
 
     <!-- User Profile Card -->
-    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
         <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
             <!-- Avatar -->
             <div class="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -72,7 +72,7 @@
     <!-- User Information Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Personal Information -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Personal Information') }}</h3>
             <div class="space-y-4">
                 <div class="flex justify-between items-center py-2 border-b border-emerald-50">
@@ -99,7 +99,7 @@
         </div>
 
         <!-- Role & Department Information -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Role & Department') }}</h3>
             <div class="space-y-4">
                 <div class="flex justify-between items-center py-2 border-b border-emerald-50">
@@ -139,7 +139,7 @@
     <!-- Additional Information -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- User Statistics -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('User Statistics') }}</h3>
             <div class="space-y-4">
                 @php
@@ -178,7 +178,7 @@
         </div>
 
         <!-- Quick Actions -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Quick Actions') }}</h3>
             <div class="space-y-3">
                 <a 
@@ -258,7 +258,7 @@
 
     <!-- Recent Activity (if applicable) -->
     @if($user->complaints && $user->complaints->count() > 0)
-    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-semibold text-emerald-900">{{ __('Recent Complaints') }}</h3>
             <span class="text-emerald-600 text-sm">{{ __('Last 5 complaints') }}</span>

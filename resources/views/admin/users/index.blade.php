@@ -24,27 +24,27 @@
             <div class="text-sm text-emerald-600">{{ __('Total Users') }}</div>
         </div>
         <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-            <div class="text-2xl font-bold text-blue-600">
+            <div class="text-2xl font-bold text-emerald-900">
                 {{ $users->where(function($user) { return $user->hasRole('citizen'); })->count() }}
             </div>
-            <div class="text-sm text-blue-600">{{ __('Citizens') }}</div>
+            <div class="text-sm text-emerald-600">{{ __('Citizens') }}</div>
         </div>
         <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-            <div class="text-2xl font-bold text-purple-600">
+            <div class="text-2xl font-bold text-emerald-900">
                 {{ $users->where(function($user) { return $user->hasRole('officer'); })->count() }}
             </div>
-            <div class="text-sm text-purple-600">{{ __('Officers') }}</div>
+            <div class="text-sm text-emerald-600">{{ __('Officers') }}</div>
         </div>
         <div class="bg-white rounded-xl shadow border border-emerald-100 p-4 text-center">
-            <div class="text-2xl font-bold text-orange-600">
+            <div class="text-2xl font-bold text-emerald-900">
                 {{ $users->where(function($user) { return $user->hasRole('admin'); })->count() }}
             </div>
-            <div class="text-sm text-orange-600">{{ __('Admins') }}</div>
+            <div class="text-sm text-emerald-600">{{ __('Admins') }}</div>
         </div>
     </div>
 
     <!-- Filters and Search -->
-    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
         <form method="GET" action="{{ route('admin.users.index') }}" class="flex flex-col md:flex-row gap-4">
             <!-- Search -->
             <div class="flex-1">
@@ -100,7 +100,7 @@
     </div>
 
     <!-- Users Table -->
-    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 overflow-hidden">
+    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 overflow-hidden">
         @if($users->count() > 0)
             <div class="overflow-x-auto">
                 <table class="w-full whitespace-nowrap">
@@ -138,14 +138,14 @@
                                     @php
                                         $role = $user->roles->first();
                                         $roleColors = [
-                                            'admin' => 'orange',
-                                            'officer' => 'purple', 
-                                            'citizen' => 'blue'
+                                            'admin' => 'emerald',
+                                            'officer' => 'emerald', 
+                                            'citizen' => 'emerald'
                                         ];
                                         $color = $roleColors[$role->name] ?? 'gray';
                                     @endphp
                                     <span class="bg-{{ $color }}-100 text-{{ $color }}-800 text-xs px-3 py-1 rounded-full font-medium">
-                                        {{ ucfirst($role->name) }}
+                                        {{ __(ucfirst($role->name)) }}
                                     </span>
                                 </td>
                                 <td class="py-4 px-6">
@@ -164,15 +164,15 @@
                                     <div class="flex space-x-2">
                                         <a 
                                             href="{{ route('admin.users.show', $user) }}" 
-                                            class="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors"
+                                            class="h-10 w-10 inline-flex items-center justify-center bg-[var(--btn-bg)] text-[var(--btn-text)] rounded-full shadow-xs"
                                         >
-                                            {{ __('View') }}
+                                            <i class="fa-solid fa-eye"></i>
                                         </a>
                                         <a 
                                             href="{{ route('admin.users.edit', $user) }}" 
-                                            class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors"
+                                            class="h-10 w-10 inline-flex items-center justify-center bg-[var(--btn-bg)] text-[var(--btn-text)] rounded-full shadow-xs"
                                         >
-                                            {{ __('Edit') }}
+                                            <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
                                         @if($user->id !== auth()->id())
                                             <form 
@@ -185,9 +185,9 @@
                                                 @method('DELETE')
                                                 <button 
                                                     type="submit"
-                                                    class="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition-colors"
+                                                    class="h-10 w-10 inline-flex items-center justify-center bg-[var(--btn-bg)] text-[var(--btn-text)] rounded-full shadow-xs cursor-pointer"
                                                 >
-                                                    {{ __('Delete') }}
+                                                    <i class="fa-solid fa-trash-can"></i>
                                                 </button>
                                             </form>
                                         @endif

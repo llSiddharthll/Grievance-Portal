@@ -1,4 +1,4 @@
-<header class="bg-emerald-600 text-white shadow-lg sticky top-0 z-50">
+<header class="bg-emerald-600 text-white shadow-2xs sticky top-0 z-50">
     <div class="flex items-center justify-between p-4">
 
         <!-- Left Section -->
@@ -36,7 +36,7 @@
 
                 <!-- Dropdown -->
                 <div
-                    class="absolute right-0 mt-2 w-32 bg-emerald-800 border rounded-md shadow-lg opacity-0 invisible
+                    class="absolute right-0 mt-2 w-32 bg-emerald-800 border rounded-md shadow-2xs opacity-0 invisible
                group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden outline-none">
 
                     <a href="{{ url('lang/en') }}"
@@ -69,7 +69,7 @@
 
                 <!-- Dropdown Menu -->
                 <div id="userDropdown"
-                    class="hidden absolute right-0 mt-2 w-auto min-w-56 bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    class="hidden absolute right-0 mt-2 w-auto min-w-56 bg-white text-gray-800 rounded-lg shadow-2xs overflow-hidden">
 
                     <button onclick="openProfileModal()" class="block w-full text-left px-4 py-2 hover:bg-gray-100">
                         {{ __('View / Edit Profile') }}

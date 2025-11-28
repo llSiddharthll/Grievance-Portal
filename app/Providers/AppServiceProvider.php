@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
                         ['label' => __('Manage Users'), 'url' => route('admin.users.index')],
                         ['label' => __('Manage Complaints'), 'url' => route('admin.complaints.index')],
                         ['label' => __('Manage Feedbacks'), 'url' => route('feedback.index')],
+                        ['label' => __('Manage Departments'), 'url' => route('admin.departments.index')],
                     ];
                 } elseif (auth()->user()->hasRole('officer')) {
                     $menu = [

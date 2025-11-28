@@ -59,37 +59,41 @@ class ComplaintController extends Controller
             'subject' => 'required|string|max:255',
             'description' => 'required|string|min:10',
             'department_id' => 'required|exists:departments,id',
-            'file' => 'nullable|file|max:10240|mimes:jpg,jpeg,png,pdf,doc,docx',
+            'file' => 'nullable|file|max:25600|mimes:jpg,jpeg,png,pdf,doc,docx,mp4,avi,mov,heic',
         ]);
 
-        // Handle file upload
+        // Ensure file_path is always declared
         $filePath = null;
         $fileType = null;
 
         if ($request->hasFile('file')) {
+
             $file = $request->file('file');
+
+            // stores to storage/app/public/complaint_files
             $filePath = $file->store('complaint_files', 'public');
             $fileType = $file->getClientMimeType();
         }
 
-        // Generate tracking ID
+        // Tracking ID
         $trackingId = $this->generateTrackingId();
 
-        // Create complaint
         Complaint::create([
             'tracking_id' => $trackingId,
-            'subject' => $validated['subject'],
+            'subject'     => $validated['subject'],
             'description' => $validated['description'],
-            'file_path' => $filePath,
-            'file_type' => $fileType,
-            'status' => 'pending',
-            'user_id' => Auth::id(),
+            'file_path'   => $filePath,   // Will now save!
+            'file_type'   => $fileType,
+            'status'      => 'pending',
+            'user_id'     => Auth::id(),
             'department_id' => $validated['department_id'],
         ]);
 
-        return redirect()->route('complaints.thanks', $trackingId)
+        return redirect()
+            ->route('complaints.thanks', $trackingId)
             ->with('success', 'Complaint registered successfully!');
     }
+
 
     /**
      * Display the specified resource.

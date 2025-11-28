@@ -19,7 +19,7 @@
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Total Complaints -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-emerald-600 text-sm font-medium">{{ __('Total Complaints') }}</p>
@@ -37,7 +37,7 @@
             </div>
 
             <!-- Resolved -->
-            <div class="bg-white rounded-xl shadow-lg border border-green-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-green-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-green-600 text-sm font-medium">{{ __('Resolved') }}</p>
@@ -55,7 +55,7 @@
             </div>
 
             <!-- In Progress -->
-            <div class="bg-white rounded-xl shadow-lg border border-blue-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-blue-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-blue-600 text-sm font-medium">{{ __('In Progress') }}</p>
@@ -73,7 +73,7 @@
             </div>
 
             <!-- Pending -->
-            <div class="bg-white rounded-xl shadow-lg border border-orange-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-orange-100 p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-orange-600 text-sm font-medium">{{ __('Pending') }}</p>
@@ -94,7 +94,7 @@
         <!-- Charts and Graphs Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Status Distribution Chart -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Status Distribution') }}</h3>
                 <div class="h-64 flex items-center justify-center">
                     <div class="w-full max-w-md">
@@ -133,7 +133,7 @@
             </div>
 
             <!-- Monthly Trend Chart -->
-            <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+            <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                 <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Monthly Complaint Trend') }}</h3>
                 <div class="h-64 flex items-end justify-between space-x-2 px-4">
                     @php
@@ -158,7 +158,7 @@
         </div>
 
         <!-- Recent Complaints Table -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-lg font-semibold text-emerald-900">{{ __('Recent Complaints') }}</h3>
                 <button class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">
@@ -190,15 +190,18 @@
                                 <td class="py-3 px-4 text-emerald-600">{{ $complaint->created_at->format('d M Y') }}</td>
                                 <td class="py-3 px-4 max-w-[150px] md:max-w-auto">
                                     @php
-                                        $statusColors = [
-                                            'Resolved' => 'bg-green-100 text-green-800',
-                                            'In Progress' => 'bg-blue-100 text-blue-800',
-                                            'Pending' => 'bg-orange-100 text-orange-800',
-                                            'Rejected' => 'bg-red-100 text-red-800'
-                                        ];
-                                        $statusColorClass = $statusColors[$complaint->status] ?? 'bg-gray-100 text-gray-800';
-                                    @endphp
-                                    <span class="{{ $statusColorClass }} text-xs px-2 py-1 rounded font-medium">{{ $complaint->status }}</span>
+                            $statusColors = [
+                                'pending' => ['color' => 'text-orange-500', 'label' => 'Pending'],
+                                'in_progress' => ['color' => 'text-blue-500', 'label' => 'In Progress'],
+                                'resolved' => ['color' => 'text-green-500', 'label' => 'Resolved'],
+                                'rejected' => ['color' => 'text-red-500', 'label' => 'Rejected']
+                            ];
+                            $statusColor = $statusColors[$complaint->status]['color'] ?? 'text-gray-500';
+                            $statusLabel = $statusColors[$complaint->status]['label'] ?? ucfirst($complaint->status);
+                        @endphp
+                        <span class="{{ $statusColor }} px-4 py-2 rounded-full text-sm font-medium capitalize">
+                            {{ $statusLabel }}
+                        </span>
                                 </td>
                                 <td class="py-3 px-4 max-w-[150px] md:max-w-auto">
                                     <button class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">

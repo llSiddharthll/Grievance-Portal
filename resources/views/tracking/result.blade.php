@@ -8,7 +8,7 @@
             </div>
 
             <!-- Complaint Details Card -->
-            <div class="bg-white rounded-2xl shadow-lg border border-emerald-100 overflow-hidden">
+            <div class="bg-white rounded-2xl shadow-2xs border border-emerald-100 overflow-hidden">
                 <!-- Status Header -->
                 <div class="bg-emerald-600 px-6 py-4">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -18,15 +18,16 @@
                         </div>
                         @php
                             $statusColors = [
-                                'pending' => 'bg-orange-500',
-                                'in progress' => 'bg-blue-500',
-                                'resolved' => 'bg-green-500',
-                                'rejected' => 'bg-red-500'
+                                'pending' => ['color' => 'bg-orange-500', 'label' => 'Pending'],
+                                'in_progress' => ['color' => 'bg-blue-500', 'label' => 'In Progress'],
+                                'resolved' => ['color' => 'bg-green-500', 'label' => 'Resolved'],
+                                'rejected' => ['color' => 'bg-red-500', 'label' => 'Rejected']
                             ];
-                            $statusColor = $statusColors[$complaint->status] ?? 'bg-gray-500';
+                            $statusColor = $statusColors[$complaint->status]['color'] ?? 'bg-gray-500';
+                            $statusLabel = $statusColors[$complaint->status]['label'] ?? ucfirst($complaint->status);
                         @endphp
                         <span class="{{ $statusColor }} text-white px-4 py-2 rounded-full text-sm font-medium capitalize">
-                            {{ $complaint->status }}
+                            {{ $statusLabel }}
                         </span>
                     </div>
                 </div>

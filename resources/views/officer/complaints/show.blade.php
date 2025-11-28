@@ -54,7 +54,7 @@
             <!-- Complaint Details -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Complaint Information -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Information') }}</h3>
                     <div class="space-y-4">
                         <div>
@@ -81,7 +81,7 @@
                                             {{ pathinfo($complaint->file_path, PATHINFO_BASENAME) }}</p>
                                     </div>
                                     <a href="{{ asset('storage/' . $complaint->file_path) }}" target="_blank"
-                                        class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors">
+                                        class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors">
                                         {{ __('View') }}
                                     </a>
                                 </div>
@@ -91,7 +91,7 @@
                 </div>
 
                 <!-- User Information -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complainant Information') }}</h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-emerald-50">
@@ -117,7 +117,7 @@
             <!-- Action Sidebar -->
             <div class="space-y-6">
                 <!-- Status Management -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Update Status') }}</h3>
 
                     @if ($complaint->status !== 'resolved')
@@ -154,7 +154,7 @@
                 </div>
 
                 <!-- Complaint Details -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Details') }}</h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-emerald-50">
@@ -187,7 +187,7 @@
                 </div>
 
                 <!-- Quick Actions -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Quick Actions') }}</h3>
                     <div class="space-y-2">
                         <a href="mailto:{{ $complaint->user->email }}"
@@ -215,7 +215,7 @@
         </div>
 
         <!-- Status Timeline -->
-        <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+        <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
             <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Status Timeline') }}</h3>
             <div class="space-y-4">
                 <div class="flex items-start space-x-3">

@@ -60,7 +60,7 @@
             <!-- Main Complaint Info -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Subject & Description -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Information') }}</h3>
                     <div class="space-y-4">
                         <div>
@@ -75,7 +75,7 @@
                 </div>
 
                 <!-- Status Timeline -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Status Timeline') }}</h3>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -210,7 +210,7 @@
             <!-- Sidebar Info -->
             <div class="space-y-6">
                 <!-- Status Card -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Current Status') }}</h3>
                     @php
                         $statusConfig = [
@@ -255,7 +255,7 @@
                 </div>
 
                 <!-- Department & Dates -->
-                <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                     <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Complaint Details') }}</h3>
                     <div class="space-y-3">
                         <div>
@@ -277,7 +277,7 @@
 
                 <!-- Attachments -->
                 @if ($complaint->file_path)
-                    <div class="bg-white rounded-xl shadow-lg border border-emerald-100 p-6">
+                    <div class="bg-white rounded-xl shadow-2xs border border-emerald-100 p-6">
                         <h3 class="text-lg font-semibold text-emerald-900 mb-4">{{ __('Attached File') }}</h3>
                         <div class="flex items-center space-x-3 p-3 bg-emerald-50 rounded-lg">
                             <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor"
@@ -292,7 +292,7 @@
                                     {{ pathinfo($complaint->file_path, PATHINFO_BASENAME) }}</p>
                             </div>
                             <a href="{{ asset('storage/' . $complaint->file_path) }}" target="_blank"
-                                class="px-3 py-1 bg-emerald-600 text-white text-sm rounded hover:bg-emerald-700 transition-colors">
+                                class="px-3 py-1 bg-emerald-200 text-emerald-800 border-emerald-800 text-sm rounded hover:bg-emerald-300 transition-colors">
                                 {{ __('View') }}
                             </a>
                         </div>

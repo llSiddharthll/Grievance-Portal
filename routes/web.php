@@ -91,6 +91,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Admin Department Routes
         Route::get('/departments', [AdminDepartmentController::class, 'index'])->name('departments.index');
+        Route::get('/departments/create', [AdminDepartmentController::class, 'create'])->name('departments.create');
+        Route::post('/departments', [AdminDepartmentController::class, 'store'])->name('departments.store');
+        Route::get('/departments/{department}', [AdminDepartmentController::class, 'show'])->name('departments.show');
+        Route::get('/departments/{department}/edit', [AdminDepartmentController::class, 'edit'])->name('departments.edit');
+        Route::put('/departments/{department}', [AdminDepartmentController::class, 'update'])->name('departments.update');
+        Route::delete('/departments/{department}', [AdminDepartmentController::class, 'destroy'])->name('departments.destroy');
 
         // Admin Reports
         Route::get('/reports', [AdminReportController::class, 'index'])->name('reports.index');
