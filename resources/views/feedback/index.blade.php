@@ -10,7 +10,7 @@
                         @elseif(auth()->user()->hasRole('officer'))
                             {{ __('feedback_dashboard') }}
                         @else
-                            My Feedback
+                            {{ __('My Feedback') }}
                         @endif
                     @endauth
                 </h1>
@@ -409,15 +409,15 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-emerald-900 mb-2">No Feedback Found</h3>
+                    <h3 class="text-lg font-semibold text-emerald-900 mb-2">{{ __('No Feedback Found') }}</h3>
                     <p class="text-emerald-600 mb-6">
                         @auth
                             @if (auth()->user()->hasRole('admin'))
-                                No feedback matches your search criteria.
+                                {{ __('No feedback matches your search criteria.') }}
                             @elseif(auth()->user()->hasRole('officer'))
-                                You haven't received or given any feedback yet.
+                                {{ __("You haven't received or given any feedback yet.") }}
                             @else
-                                You haven't submitted any feedback yet.
+                                {{ __("You haven't submitted any feedback yet.") }}
                             @endif
                         @endauth
                     </p>

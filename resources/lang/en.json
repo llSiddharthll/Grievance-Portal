@@ -488,5 +488,9 @@
     "Department Overview": "Department Overview",
     "Total Department Complaints": "Total Department Complaints",
     "View All Complaints": "View All Complaints",
-    "Pending Actions": "Pending Actions"
+    "Pending Actions": "Pending Actions",
+    "No Feedback Found": "No Feedback Found",
+    "No feedback matches your search criteria.": "No feedback matches your search criteria.",
+    "You haven't received or given any feedback yet.": "You haven't received or given any feedback yet.",
+    "You haven't submitted any feedback yet.": "You haven't submitted any feedback yet."
 }

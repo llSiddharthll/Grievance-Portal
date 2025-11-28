@@ -485,5 +485,9 @@
     "Department Overview": "विभाग का अवलोकन",
     "Total Department Complaints": "कुल विभाग शिकायतें",
     "View All Complaints": "सभी शिकायतें देखें",
-    "Pending Actions": "लंबित कार्य"
+    "Pending Actions": "लंबित कार्य",
+    "No Feedback Found": "कोई फीडबैक नहीं मिला",
+        "No feedback matches your search criteria.": "कोई फीडबैक आपकी खोज मानदंड से मेल नहीं खाता।",
+    "You haven't received or given any feedback yet.": "आपने अभी तक कोई फीडबैक प्राप्त या दिया नहीं है।",
+    "You haven't submitted any feedback yet.": "आपने अभी तक कोई फीडबैक जमा नहीं किया है।"
 }
